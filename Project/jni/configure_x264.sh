@@ -5,7 +5,7 @@ pushd `dirname $0`
 pushd x264
 
 ./configure --cross-prefix=arm-linux-androideabi- \
---enable-pic \
+--enable-pic --enable-static \
 --host=arm-linux 
 
 popd;popd
