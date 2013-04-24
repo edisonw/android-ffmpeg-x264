@@ -1,3 +1,11 @@
+All credit goes to the respected library owners.
+
+Building process thanks to 
+
+halfninja, andynicholson, and jhotovy.
+
+---------------------------------------
+
 h1. Read me first (that's why I'm at the top!)
 
 I'm not going to be working on this at all for the forseeable future, and I won't have time to answer questions about why it doesn't compile on your platform or has something missing.
