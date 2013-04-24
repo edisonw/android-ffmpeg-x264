@@ -19,6 +19,10 @@ fi
 
 pushd ffmpeg
 
+x264=`pwd`/../x264
+
+echo $here
+
 ./configure $DEBUG_FLAG --enable-cross-compile \
 --arch=arm5te \
 --enable-armv5te \
@@ -30,6 +34,8 @@ pushd ffmpeg
 --disable-shared \
 --enable-static \
 --enable-gpl \
+--enable-encoder=libx264 \
+--enable-libx264 \
 --enable-memalign-hack \
 --cc=arm-linux-androideabi-gcc \
 --ld=arm-linux-androideabi-ld \
@@ -46,7 +52,7 @@ $featureflags \
 --disable-demuxer=v4l2 \
 --disable-indev=v4l \
 --disable-indev=v4l2 \
---extra-cflags="-I/usr/local/include -Ivideokit" \
---extra-ldflags="-L/usr/local/lib" 
+--extra-cflags="-I/usr/local/include -Ivideokit -I$x264" \
+--extra-ldflags="-L/usr/local/lib -L$x264" 
 
 popd; popd

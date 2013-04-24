@@ -2,7 +2,7 @@
 
 #include <android/log.h>
 #include "logjam.h"
-#include "uk_co_halfninja_videokit_Videokit.h"
+#include "co_vine_android_recorder_Processor.h"
 
 #include <stdlib.h>
 #include <stdbool.h>
@@ -38,9 +38,9 @@ int throwException(JNIEnv *env, const char* message)
 }
 
 
-JNIEXPORT void JNICALL Java_uk_co_halfninja_videokit_Videokit_run(JNIEnv *env, jobject obj, jobjectArray args)
+JNIEXPORT jint JNICALL Java_co_vine_android_recorder_Processor_run(JNIEnv *env, jobject obj, jobjectArray args)
 {
-	LOGD("run() called");
+	LOGD("run()");
 	int i = 0;
 	int argc = 0;
 	char **argv = NULL;
@@ -49,36 +49,29 @@ JNIEXPORT void JNICALL Java_uk_co_halfninja_videokit_Videokit_run(JNIEnv *env, j
 		argc = (*env)->GetArrayLength(env, args);
 		argv = (char **) malloc(sizeof(char *) * argc);
 
-		for(i=0;i<argc;i++)
-		{
+		for(i=0;i<argc;i++){
 			jstring str = (jstring)(*env)->GetObjectArrayElement(env, args, i);
 			argv[i] = (char *)(*env)->GetStringUTFChars(env, str, NULL);   
 		}
-	}	
+	}
 
-	LOGD("run passing off to main()");
-	main(argc, argv);
+	LOGD("ffmpeg main()");
+	return main(argc, argv);
 }
 
 #if 0
-JNIEXPORT void JNICALL Java_uk_co_halfninja_videokit_Videokit_initialise(JNIEnv *env, jobject self)
+JNIEXPORT void JNICALL Java_co_vine_android_recorder_Processor_initialise(JNIEnv *env, jobject self)
 {
   if (!initted) 
   {
-    LOG_INFO("Initialising VideoKit");
+    LOG_INFO("Initialize");
     av_register_all();
     initted = true;
   }
   else
   {
-    LOG_INFO("Already initialised Videokit, ignoring init()");    
+    LOG_INFO("Already initialized, ignoring init()");    
   }
-}
-
-JNIEXPORT void JNICALL Java_uk_co_halfninja_videokit_Videokit_setSize (JNIEnv *env, jobject self, jstring size)
-{
-  LOG_INFO("Let's throw an exception!");
-  throwException(env, "Bam, not supported");
 }
 
 #endif

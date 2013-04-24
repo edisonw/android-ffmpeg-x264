@@ -3,7 +3,7 @@
 
 #include <android/log.h> 
 
-#define LOGTAG "Videokit"
+#define LOGTAG "ffmpeg"
 
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOGTAG, __VA_ARGS__) 
 #define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG  , LOGTAG, __VA_ARGS__) 
