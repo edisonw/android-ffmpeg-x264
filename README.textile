@@ -4,6 +4,8 @@ Building process thanks to
 
 halfninja, andynicholson, and jhotovy.
 
+Also, make sure you are using ndk version r5c to build it, later versions seem to have problems.
+
 ---------------------------------------
 
 h1. Read me first (that's why I'm at the top!)
