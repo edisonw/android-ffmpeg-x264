@@ -12,9 +12,9 @@ FFMPEG_LIBS := $(addprefix ffmpeg/, \
  libavutil/libavutil.a \
  libpostproc/libpostproc.a )
 # ffmpeg uses its own deprecated functions liberally, so turn off that annoying noise
-LOCAL_CFLAGS += -g -Iffmpeg -Ivideokit -Wno-deprecated-declarations 
+LOCAL_CFLAGS += -g -Iffmpeg -Irun -Wno-deprecated-declarations 
 LOCAL_LDLIBS += -llog -lz $(FFMPEG_LIBS) x264/libx264.a
-LOCAL_SRC_FILES := videokit/co_vine_android_recorder_Processor.c videokit/ffmpeg.c videokit/cmdutils.c
+LOCAL_SRC_FILES := run/co_vine_android_recorder_Processor.c run/ffmpeg.c run/cmdutils.c
 include $(BUILD_SHARED_LIBRARY)
 
 # Use to safely invoke ffmpeg multiple times from the same Activity

@@ -8,7 +8,7 @@ extern "C" {
 #include <jni.h>
 
 // Use to safely invoke ffmpeg multiple times from the same Activity
-void Java_co_vine_android_recorder_FFmpegInvoke_run(JNIEnv*, jobject, jstring, jobjectArray);
+jint Java_co_vine_android_recorder_FFmpegInvoke_run(JNIEnv*, jobject, jstring, jobjectArray);
 
 #ifdef __cplusplus
 }

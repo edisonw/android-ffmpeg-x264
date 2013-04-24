@@ -52,7 +52,7 @@ $featureflags \
 --disable-demuxer=v4l2 \
 --disable-indev=v4l \
 --disable-indev=v4l2 \
---extra-cflags="-I/usr/local/include -Ivideokit -I$x264" \
+--extra-cflags="-I/usr/local/include -Irun -I$x264" \
 --extra-ldflags="-L/usr/local/lib -L$x264" 
 
 popd; popd
